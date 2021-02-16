@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">     
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+    <script>
+        
+        function num(a)
+        {
+            document.myform.txt.value+=a;
+        }
+        function equalto()
+        {
+            var expression=myform.txt.value;
+            var result=eval(expression);  
+	        document.myform.txt.value=result;
+        }
+        function back()
+        {
+            var prevalue=myform.txt.value;
+            myform.txt.value=prevalue.substr(0,prevalue.length*1-1);
+        }
+        function clear()
+        {
+            document.getElementById('display').value='';
+                //document.myform.txt.value=0;
+        }
+    </script>
+    
+        <div  class="btn-group">
+            <form name="myform">  
+                <input type=" text" name="txt" style="width:143px" id="center">
+                <table bordercolor="green" align="center" width="150px"
+            cellspacing="2px" cellpadding="2px" >
+            <tr> 
+               <td> <input type="reset" id="display" onclick="clear()" value="C"></input></td>
+                <td><input type="button" onclick="back()" value="<"></input></td>
+                <td><input type="button" onclick="num('/')" value="/"></input></td>
+                <td><input type="button" onclick="num('*')" value="*"></input></td>
+               </tr>
+               <br></br>
+            <tr>
+                <td > <input type="button" onclick="num(7)"  value="7"></input></td>
+                <td><input type="button" onclick="num(8)" value="8"></input></td>
+                <td><input type="button" onclick="num(9)" value="9"></input></td>
+                <td><input type="button" onclick="num('-')" value="-"></input></td>  
+            </tr>
+            <tr>
+               <td><input type="button" onclick="num(4)" value="4"></input></td>
+               <td><input type="button" onclick="num(5)" value="5"></input></td>
+               <td><input type="button" onclick="num(6)" value="6"></input></td>
+               <td rowspan="2" id=plus><input type="button" style="height:50px" onclick="num('+')" value="+"></input></td>
+            </tr>
+           
+            <tr>
+               <td><input type="button" onclick="num(1)" value="1" ></input></td> 
+                <td><input type="button" onclick="num(2)" value="2"></input></td>
+               <td> <input type="button" onclick="num(3)" value="3"></input></td>
+            </tr>
+            <tr>
+               <td colspan="2" id=zero><input type="button" style="width:58px" onclick="num(0)" value="0"></input></td>
+               <td><input type="button" onclick="num('.')" value="."></input></td>
+               <td><input type="button" onclick="equalto()" value="="></input></td>   
+            </tr>
+                 </table> 
+                </form>
+        </div>
+            
+</body>
+</html> 
